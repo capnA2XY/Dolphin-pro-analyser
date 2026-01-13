@@ -20,7 +20,7 @@ DOLPHIN PRO ANALYZER is a comprehensive computational pipeline for automated beh
 
 ### Associated Publication
 
-> Aradi, A. (2025). Deep learning-based behavioral state classification of Indo-Pacific bottlenose dolphin (*Tursiops aduncus*) acoustic signals using LSTM autoencoders. *Marine Mammal Science*. (submitted)
+> Aradi, A. (2026). Deep learning-based behavioral state classification of Indo-Pacific bottlenose dolphin (*Tursiops aduncus*) acoustic signals using LSTM autoencoders. *Marine Mammal Science*. (submitted)
 
 ---
 
@@ -321,8 +321,11 @@ copies or substantial portions of the Software.
 
 **Attila Aradi**  
 ION-Technik Kft.
+
 ION Alkalmazott Kutatási NonProfit Kft.
+
 University of Miskolc, Hungary  
+
 📧 attila.aradi@gmail.com
 
 ---
