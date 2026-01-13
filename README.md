@@ -13,7 +13,22 @@
 DOLPHIN PRO ANALYZER is a comprehensive computational pipeline for automated behavioral state classification of dolphin acoustic signals. The system integrates:
 
 - **LSTM Autoencoders** for latent space representation learning
-- **Harmonic-Percussive Source Separation (HPSS)** for acoustic feature extraction
+- **Harmonic-Percussive Source Separation (HPSS)** for acoustic feature extractionPermission is hereby granted, free of charge, to any person obtaining a copy
+6		-
+of this software and associated documentation files (the "Software"), to deal
+7		-
+in the Software without restriction, including without limitation the rights
+8		-
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+9		-
+copies of the Software, and to permit persons to whom the Software is
+10		-
+furnished to do so, subject to the following conditions:
+11		-
+12		-
+The above copyright notice and this permission notice shall be included in all
+13		-
+
 - **Recurrence Quantification Analysis (RQA)** for temporal dynamics characterization
 - **Markov Chain Modeling** for behavioral transition analysis
 - **Social Network Analysis** for group-level behavioral patterns
@@ -297,22 +312,10 @@ If you use this software in your research, please cite:
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```
-MIT License
 
 Copyright (c) 2025 Attila Aradi
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
 ```
 
 ---
