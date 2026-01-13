@@ -320,7 +320,8 @@ copies or substantial portions of the Software.
 ## 📧 Contact
 
 **Attila Aradi**  
-Department of Automation and Infocommunication  
+ION-Technik Kft.
+ION Alkalmazott Kutatási NonProfit Kft.
 University of Miskolc, Hungary  
 📧 attila.aradi@gmail.com
 
