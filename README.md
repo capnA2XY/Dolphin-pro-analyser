@@ -313,12 +313,9 @@ If you use this software in your research, please cite:
 ## 📄 License
 
 
-
 Copyright (c) 2025 Attila Aradi
 
-```
 
----
 
 ## 📧 Contact
 
