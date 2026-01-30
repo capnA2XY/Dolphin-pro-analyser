@@ -1,0 +1,2 @@
+N_Significant_Patterns,N_Motifs_Preferred,N_Antimotifs_Avoided,Top_Motif,Top_Motif_Z_Score,Top_Antimotif,Top_Antimotif_Z_Score
+40,20,20,BASELINE→DEEP RES→SCAN BUR,228.67806968435056,SOFT BUR→SCAN BUR→DEEP RES,-28.58951652016189

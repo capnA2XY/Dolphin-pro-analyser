@@ -1,0 +1,2 @@
+Total_Vocal_Events,Whistle_Events,Burst_Events,Click_Train_Events,Mean_FTO_ms,Median_FTO_ms,Std_FTO_ms,N_Gaps,N_Overlaps,Gap_Ratio,Overlap_Ratio,Mean_Gap_Duration_ms,Mean_Overlap_Duration_ms,Burstiness_Index,Transition_Entropy_bits,Call_Response_Pairs,Response_Probability,Mean_Response_Latency_ms
+22109,8884,9824,3401,14.804414691513765,10.666666666679703,86.20251955314329,3908,1258,0.17676859055545505,0.05690247874072734,106.48652337086163,157.1976682564919,0.22098449429821412,1.4255815013296278,22108,1.0,41.47228755804759
