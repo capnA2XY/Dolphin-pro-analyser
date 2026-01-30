@@ -1,335 +1,359 @@
-# 🐬 DOLPHIN PRO ANALYZER v4.0 CAI
-
-**Deep Learning-Based Behavioral Classification of Indo-Pacific Bottlenose Dolphin (*Tursiops aduncus*) Acoustic Signals**
+# 🐬 Dolphin Pro Analyzer - Ultimate Edition v4.3
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![PyTorch](https://img.shields.io/badge/PyTorch-2.0+-ee4c2c.svg)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://img.shields.io/badge/DOI-10.xxxx%2Fxxxxx-blue)](https://doi.org/)
+
+**Integrated Bioacoustic Analysis Tool for Dolphin Communication Studies**
+
+A comprehensive Python toolkit for analyzing dolphin acoustic communication using LSTM autoencoders, dynamical systems theory, and advanced visualization techniques. Designed for research on *Tursiops* species (bottlenose dolphins).
 
 ---
 
-## 📖 Overview
+## 📋 Table of Contents
 
-DOLPHIN PRO ANALYZER is a comprehensive computational pipeline for automated behavioral state classification of dolphin acoustic signals. The system integrates:
-
-- **LSTM Autoencoders** for latent space representation learning
-- **Harmonic-Percussive Source Separation (HPSS)** for acoustic feature extractionPermission is hereby granted, free of charge, to any person obtaining a copy
-6		-
-of this software and associated documentation files (the "Software"), to deal
-7		-
-in the Software without restriction, including without limitation the rights
-8		-
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-9		-
-copies of the Software, and to permit persons to whom the Software is
-10		-
-furnished to do so, subject to the following conditions:
-11		-
-12		-
-The above copyright notice and this permission notice shall be included in all
-13		-
-
-- **Recurrence Quantification Analysis (RQA)** for temporal dynamics characterization
-- **Markov Chain Modeling** for behavioral transition analysis
-- **Social Network Analysis** for group-level behavioral patterns
-
-### Associated Publication
-
-> Aradi, A. (2026). Deep learning-based behavioral state classification of Indo-Pacific bottlenose dolphin (*Tursiops aduncus*) acoustic signals using LSTM autoencoders. *Marine Mammal Science*. (submitted)
+- [Features](#-features)
+- [Installation](#-installation)
+- [Usage](#-usage)
+- [Behavioral States](#-behavioral-states)
+- [Output Files](#-output-files)
+- [Methods](#-methods)
+- [Requirements](#-requirements)
+- [Citation](#-citation)
+- [License](#-license)
 
 ---
 
-## 🚀 Features
+## ✨ Features
 
-| Feature | Description |
-|---------|-------------|
-| 🧠 **8 Behavioral States** | Automatic clustering with interpretable labels |
-| 📊 **30 Visualizations** | Comprehensive analytical output suite |
-| 🔬 **Enhanced ICI Analysis** | Bimodal detection, terminal buzz identification |
-| 📈 **Bout Analysis** | Survival modeling, fragmentation metrics |
-| 🌐 **Social Dynamics** | Turn-taking, contagion cascades, dominance hierarchies |
-| ⚡ **GPU Accelerated** | PyTorch-based LSTM training |
+### Deep Learning Analysis
+- **LSTM Autoencoder** for unsupervised behavioral state discovery
+- Latent space embedding and clustering
+- Explainable AI (XAI) feature importance analysis
+
+### Acoustic Feature Extraction
+- Spectral centroid, bandwidth, rolloff, and flatness
+- Zero-crossing rate and RMS energy
+- Mel-frequency cepstral coefficients (MFCCs)
+- Click detection and Inter-Click Interval (ICI) analysis
+
+### Dynamical Systems Analysis
+- **Recurrence Quantification Analysis (RQA)** - determinism, laminarity, recurrence rate
+- **Markov chain modeling** - state transition probabilities
+- **Phase portrait reconstruction** - attractor dynamics
+- **Temporal irreversibility** - time asymmetry detection
+- **Self-organized criticality** - avalanche analysis
+
+### Advanced Analytics
+- Topological Data Analysis (TDA) with persistent homology
+- Vocal interaction timing (Floor Transfer Offset analysis)
+- Whistle contour extraction and clustering
+- Soundscape analysis with Lombard effect detection
+- Cognitive kinematics in latent space
+- Motif/syntax analysis with statistical significance testing
+
+### Visualization Suite (37 outputs)
+- Interactive dashboards and summary reports
+- Sankey diagrams for state transitions
+- Chord diagrams for behavioral connections
+- Streamgraphs, horizon charts, and ridge plots
+- Phase portraits and recurrence plots
+- Polar histograms and Voronoi tessellations
+- Animated 3D helix trajectories
 
 ---
 
-## 📦 Installation
+## 🔧 Installation
+
+### Prerequisites
 
 ```bash
-# Clone the repository
-git clone https://github.com/capnA2XY/Dolphin-pro-analyser.git
-cd Dolphin-pro-analyser
-
-# Create virtual environment (recommended)
-python -m venv venv
-source venv/bin/activate  # Linux/Mac
-# or: venv\Scripts\activate  # Windows
-
-# Install dependencies
-pip install -r requirements.txt
+# Create a virtual environment (recommended)
+python -m venv dolphin_env
+source dolphin_env/bin/activate  # Linux/Mac
+# or
+dolphin_env\Scripts\activate  # Windows
 ```
 
-### Requirements
+### Install Dependencies
 
+```bash
+pip install numpy pandas matplotlib seaborn scipy scikit-learn tqdm
+pip install torch torchvision torchaudio
+pip install librosa soundfile
+pip install networkx plotly imageio
 ```
-numpy>=1.21.0
-scipy>=1.7.0
-pandas>=1.3.0
-matplotlib>=3.4.0
-scikit-learn>=0.24.0
-librosa>=0.8.0
-torch>=1.9.0
-networkx>=2.6.0
-plotly>=5.0.0
-imageio>=2.9.0
+
+### Optional Dependencies
+
+```bash
+# For topological data analysis
+pip install ripser persim
+
+# For GPU acceleration (CUDA)
+pip install torch --index-url https://download.pytorch.org/whl/cu118
 ```
 
 ---
 
-## 💻 Usage
+## 🚀 Usage
 
 ### Basic Usage
 
-```python
-from dolphin_pro_analyzer_v40_cai import DolphinProAnalyzer
-
-# Initialize analyzer with audio file
-analyzer = DolphinProAnalyzer("your_recording.wav")
-
-# Run full analysis pipeline
-analyzer.run()
-```
-
-### Command Line
+1. Place your `.wav` audio file in the same directory as the script
+2. Run the analyzer:
 
 ```bash
-# Place your .wav file in the directory and run
-python dolphin_pro_analyzer_v40_cai.py
+python cai_nsnp_0145.py
 ```
 
-### Example Script
+The analyzer will automatically:
+- Detect and load the audio file
+- Trim the first 3 minutes and last 2 minutes (configurable)
+- Extract acoustic features
+- Train the LSTM autoencoder
+- Perform clustering and state identification
+- Generate all visualizations and CSV exports
+
+### Input Requirements
+
+- **Audio format:** WAV file (mono or stereo)
+- **Sample rate:** Any (automatically resampled to 22050 Hz)
+- **Minimum duration:** ~10 minutes recommended
+- **Content:** Dolphin vocalizations (clicks, whistles, burst-pulses)
+
+### Configuration
+
+Key parameters can be modified in the `DolphinProVisualizer` class:
 
 ```python
-"""example_usage.py - Demonstration of DOLPHIN PRO ANALYZER"""
-
-import os
-from dolphin_pro_analyzer_v40_cai import DolphinProAnalyzer
-
-# Find first .wav file in current directory
-wav_files = [f for f in os.listdir('.') if f.endswith('.wav')]
-
-if wav_files:
-    analyzer = DolphinProAnalyzer(wav_files[0])
-    analyzer.run()
-    print(f"Analysis complete! Check output PNG/GIF/HTML files.")
-else:
-    print("No .wav file found. Place a recording in this directory.")
+self.window_size = 40      # Temporal window for sequences
+self.hidden_dim = 32       # LSTM hidden dimension
+self.batch_size = 64       # Training batch size
 ```
 
 ---
 
 ## 🎯 Behavioral States
 
-The analyzer automatically classifies acoustic signals into 8 behavioral states:
+The analyzer identifies 8 distinct behavioral states based on acoustic signatures:
 
-| State | Label | Acoustic Signature | Description |
-|-------|-------|-------------------|-------------|
-| 0 | **SILENCE** | Low all channels | Baseline/resting period |
-| 1 | **SCAN** | High click, low whistle | Active echolocation |
-| 2 | **WHISTLE** | High whistle, low burst | Contact calls |
-| 3 | **Soft BURST** | Moderate burst | Social contact signals |
-| 4 | **SCAN+WHISTLE** | Mixed click/whistle | Combined scanning |
-| 5 | **BURST+SCAN** | High burst + click | Approach behavior |
-| 6 | **PLAY** | Mixed high activity | Social play |
-| 7 | **INTENSE PLAY** | Maximum all channels | High-arousal interaction |
-
----
-
-## 📊 Output Visualizations
-
-The pipeline generates **30 distinct visualizations** organized into categories:
-
-### Main Paper Figures (5)
-
-| Figure | Filename | Description |
-|--------|----------|-------------|
-| 1 | `dolphin_streamgraph.png` | Temporal dynamics of acoustic channels |
-| 2 | `dolphin_recurrence_plot.png` | RQA recurrence visualization |
-| 3 | `dolphin_ici_analysis.png` | Inter-click interval analysis |
-| 4 | `dolphin_bout_analysis.png` | Comprehensive bout analysis |
-| 5 | `dolphin_social_network.png` | Social network structure |
-
-### Supplementary Figures (S1-S25)
-
-<details>
-<summary><b>Click to expand full visualization list</b></summary>
-
-| Fig | Filename | Category | Description |
-|-----|----------|----------|-------------|
-| S1 | `dolphin_dashboard_full.png` | Overview | Integrated analysis dashboard |
-| S2 | `dolphin_mandala.png` | Cyclicity | Circular behavioral pattern |
-| S3 | `dolphin_helix_3d.png` | Evolution | 3D latent space trajectory |
-| S4 | `dolphin_vector_field.png` | Dynamics | Behavioral attractor field |
-| S5 | `dolphin_burst_deep_dive.png` | Micro-structure | Burst pulse sub-classification |
-| S6 | `dolphin_sankey.png` | Transitions | State transition flow diagram |
-| S7 | `dolphin_horizon_chart.png` | Multi-channel | Horizon chart analysis |
-| S8 | `dolphin_chord_diagram.png` | Network | Transition chord diagram |
-| S9 | `dolphin_spectrogram_overlay.png` | Validation | Spectrogram with states |
-| S10 | `dolphin_polar_histogram.png` | Temporal | Windrose distribution |
-| S11 | `dolphin_phase_portrait.png` | Dynamics | Phase space velocity field |
-| S12 | `dolphin_entropy_plot.png` | Complexity | Shannon entropy dynamics |
-| S13 | `dolphin_voronoi_map.png` | Territories | Behavioral territory mapping |
-| S14 | `dolphin_ridge_plot.png` | Fingerprints | Acoustic feature distributions |
-| S15 | `dolphin_markov_analysis.png` | Stationary | Markov chain properties |
-| S16 | `dolphin_turn_taking.png` | Social | Vocal turn-taking dynamics |
-| S17 | `dolphin_contagion_cascade.png` | Social | Acoustic behavior spreading |
-| S18 | `dolphin_dynamic_network.png` | Social | Network evolution over time |
-| S19 | `dolphin_information_flow.png` | Social | Transfer entropy analysis |
-| S20 | `dolphin_repertoire_similarity.png` | Culture | Vocal repertoire clustering |
-| S21 | `dolphin_reciprocity_dominance.png` | Social | Dominance hierarchy |
-| S22 | `dolphin_summary_report.png` | Summary | Statistical summary report |
-| S23 | `dolphin_helix_3d_anim.gif` | Animation | Animated behavioral evolution |
-| S24 | `dolphin_flow_field.gif` | Animation | Animated attractor dynamics |
-| S25 | `dolphin_sequence_sunburst.html` | Interactive | Behavioral sequence hierarchy |
-
-</details>
+| State | Description | Acoustic Characteristics |
+|-------|-------------|-------------------------|
+| **BASELINE** | Low activity baseline | Minimal acoustic output |
+| **SOFT BURST** | Moderate burst activity | Medium-energy burst pulses |
+| **INTENSE BURST** | High burst energy episodes | High-amplitude burst sequences |
+| **CONTACT CALL** | Whistle-dominant communication | Signature whistles, frequency modulation |
+| **SOCIAL PLAY** | Mixed high-activity interaction | Variable clicks and whistles |
+| **SCAN BURST** | Scanning with burst pulses | Regular click trains |
+| **VIGILANT REST** | Alert resting state | Sparse, low-energy signals |
+| **DEEP REST** | Low activity rest | Minimal vocalization |
 
 ---
 
-## 🔬 Methodology
+## 📁 Output Files
 
-### Signal Processing Pipeline
+### Visualizations (PNG/GIF)
 
-```
-Raw Audio (.wav, 96 kHz)
-    │
-    ▼
-┌─────────────────────────────────┐
-│  Harmonic-Percussive Separation │
-│  (HPSS via librosa)             │
-└─────────────────────────────────┘
-    │
-    ├──► Harmonic Channel (Whistles)
-    ├──► Percussive Channel (Burst Pulses)  
-    └──► Onset Strength (Clicks)
-           │
-           ▼
-    ┌─────────────────────────────────┐
-    │  Feature Vector Extraction      │
-    │  (50-sample windows, 80% overlap)│
-    └─────────────────────────────────┘
-           │
-           ▼
-    ┌─────────────────────────────────┐
-    │  LSTM Autoencoder               │
-    │  Encoder: 128→64→16 latent dims │
-    │  Decoder: 16→64→128→3 output    │
-    └─────────────────────────────────┘
-           │
-           ▼
-    ┌─────────────────────────────────┐
-    │  K-means Clustering (K=8)       │
-    │  Silhouette optimization        │
-    └─────────────────────────────────┘
-           │
-           ▼
-    8 Behavioral States + 30 Visualizations
-```
+| # | Filename | Description |
+|---|----------|-------------|
+| 1 | `fig01_dashboard.png` | Main analysis dashboard |
+| 2 | `fig02_mandala.png` | Circular state visualization |
+| 3 | `fig03_burst_analysis.png` | Burst-pulse substructure |
+| 4 | `fig04_streamgraph.png` | Temporal state proportions |
+| 5 | `fig05_helix.png` | 3D chronological helix |
+| 6 | `fig06_helix_animation.gif` | Animated helix trajectory |
+| 7 | `fig07_vector_field.png` | Latent space dynamics |
+| 8 | `fig08_sankey.png` | State transition flows |
+| 9 | `fig09_recurrence.png` | Recurrence plot |
+| 10 | `fig10_horizon.png` | Horizon chart |
+| 11 | `fig11_chord.png` | State connectivity diagram |
+| 12 | `fig12_spectrogram.png` | Spectrogram with state overlay |
+| 13 | `fig13_polar.png` | Polar histogram |
+| 14 | `fig14_phase_portrait.png` | Phase space reconstruction |
+| 15 | `fig15_entropy.png` | Shannon entropy analysis |
+| 16 | `fig16_voronoi.png` | Voronoi tessellation map |
+| 17 | `fig17_ridge.png` | Ridge plot distributions |
+| 18 | `fig18_sunburst.png` | Hierarchical state sequences |
+| 19 | `fig19_ici_analysis.png` | Inter-click interval analysis |
+| 20 | `fig20_bout_analysis.png` | Behavioral bout statistics |
+| 21 | `fig21_markov.png` | Markov transition analysis |
+| 22 | `fig22_vocal_interaction.png` | Vocal timing patterns |
+| 23 | `fig23_whistle_catalog.png` | Whistle type classification |
+| 24 | `fig24_soundscape.png` | Acoustic environment analysis |
+| 25 | `fig25_kinematics.png` | Cognitive kinematics |
+| 26 | `fig26_motif_analysis.png` | Behavioral motif patterns |
+| 27 | `fig27_xai_analysis.png` | Feature importance (XAI) |
+| 28 | `fig28_irreversibility.png` | Temporal irreversibility |
+| 29 | `fig29_criticality.png` | Self-organized criticality |
+| 30 | `fig30_topology.png` | Topological data analysis |
+| 31 | `fig31_summary_report.png` | Comprehensive summary |
 
-### LSTM Architecture
+### CSV Data Files (31 files)
 
-```
-Input (seq_len, 3) ──► LSTM(128) ──► LSTM(64) ──► Latent(16)
-                                                      │
-Output (seq_len, 3) ◄── LSTM(128) ◄── LSTM(64) ◄─────┘
-```
+#### Core Statistics
+- `paper_statistics_summary.csv` - Master summary with all metrics
+- `paper_audio_stats.csv` - Recording and audio parameters
+- `paper_behavioral_states.csv` - 8 behavioral state characteristics
 
-### Analysis Methods
+#### Click & ICI Analysis
+- `paper_ici_statistics.csv` - Inter-click interval statistics
 
-| Method | Purpose | Key Metrics |
-|--------|---------|-------------|
-| **RQA** | Temporal structure | RR, DET, LAM, L_max |
-| **Shannon Entropy** | Behavioral complexity | H, H_norm |
-| **ICI Analysis** | Click characterization | Bimodality, terminal buzz % |
-| **Bout Analysis** | Episode duration | T_50, fragmentation index |
-| **Markov Chain** | Transition probabilities | Stationary distribution |
-| **Transfer Entropy** | Information flow | Directed coupling |
+#### Bout Analysis
+- `paper_bout_statistics.csv` - Behavioral bout metrics
+- `paper_bout_by_state.csv` - Bout statistics per state
+
+#### Dynamics & Transitions
+- `paper_rqa_statistics.csv` - Recurrence quantification metrics
+- `paper_entropy_statistics.csv` - Shannon entropy values
+- `paper_markov_transitions.csv` - 8×8 state transition matrix
+- `paper_markov_statistics.csv` - Markov chain properties
+- `paper_transition_flows.csv` - Sankey-style transition data
+
+#### Vocal Interaction
+- `paper_vocal_interaction.csv` - FTO, gaps, burstiness metrics
+- `paper_event_transitions.csv` - 3×3 event type matrix
+
+#### Whistle Analysis
+- `paper_whistle_catalog.csv` - Whistle contour type summary
+- `paper_whistle_centroids.csv` - Whistle type centroid shapes
+
+#### Soundscape
+- `paper_soundscape.csv` - Lombard effect and acoustic environment
+
+#### Kinematics
+- `paper_kinematics.csv` - Cognitive kinematics summary
+- `paper_kinematics_by_state.csv` - Velocity by behavioral state
+
+#### Motif/Syntax Analysis
+- `paper_motif_summary.csv` - Behavioral motif statistics
+- `paper_motif_details.csv` - All motif patterns with Z-scores
+
+#### Explainable AI
+- `paper_xai_dominant_features.csv` - Dominant feature per state
+- `paper_xai_latent_pca.csv` - Latent space PCA variance
+- `paper_xai_cluster_importance.csv` - Feature deviation matrix
+
+#### Advanced Dynamics
+- `paper_irreversibility.csv` - Temporal irreversibility metrics
+- `paper_criticality.csv` - Self-organized criticality metrics
+- `paper_topology.csv` - Topological data analysis (TDA)
+
+#### Latent Space
+- `paper_latent_space.csv` - Latent space dimension statistics
+- `paper_state_centroids.csv` - State centroids in latent space
+- `paper_phase_portrait.csv` - Phase space trajectory statistics
+
+#### Temporal & Feature Distributions
+- `paper_feature_distributions.csv` - Feature statistics per state
+- `paper_temporal_proportions.csv` - State proportions over time (60s bins)
 
 ---
 
-## 📁 Repository Structure
+## 🔬 Methods
+
+### Feature Extraction
+
+The analyzer extracts the following acoustic features using `librosa`:
+
+- **Spectral features:** centroid, bandwidth, rolloff, flatness, contrast
+- **Temporal features:** zero-crossing rate, RMS energy
+- **Cepstral features:** 13 MFCCs
+- **Rhythm features:** tempo, onset strength
+
+### LSTM Autoencoder Architecture
 
 ```
-Dolphin-pro-analyser/
-│
-├── dolphin_pro_analyzer_v40_cai.py   # Main analyzer (4658 lines)
-├── example_usage.py                   # Usage demonstration
-├── requirements.txt                   # Python dependencies
-├── LICENSE                            # MIT License
-├── README.md                          # This file
-│
-├── paper/
-│   ├── dolphin_mms_wiley_template.tex # Manuscript (Wiley format)
-│   └── dolphin_mms_paper.pdf          # Compiled PDF
-│
-└── figures/                           # Output visualizations
-    ├── dolphin_streamgraph.png
-    ├── dolphin_recurrence_plot.png
-    ├── dolphin_ici_analysis.png
-    ├── dolphin_bout_analysis.png
-    ├── dolphin_social_network.png
-    └── ... (25 supplementary figures)
+Input → LSTM Encoder → Latent Space (32-dim) → LSTM Decoder → Reconstruction
+```
+
+The model learns compressed representations of acoustic sequences, enabling:
+- Dimensionality reduction
+- Behavioral state clustering (K-means, k=8)
+- Anomaly detection via reconstruction error
+
+### Recurrence Quantification Analysis
+
+Based on [Marwan et al. (2007)](https://doi.org/10.1016/j.physrep.2006.11.001):
+- **Recurrence Rate (RR):** Density of recurrence points
+- **Determinism (DET):** Predictability of the system
+- **Laminarity (LAM):** Presence of laminar states
+- **Entropy (ENTR):** Complexity of diagonal structures
+
+### Topological Data Analysis
+
+Uses persistent homology to identify:
+- **Betti-0:** Connected components
+- **Betti-1:** Loops/cycles in the data
+- **Betti-2:** Voids/cavities
+
+---
+
+## 📦 Requirements
+
+```
+numpy>=1.21.0
+pandas>=1.3.0
+matplotlib>=3.4.0
+seaborn>=0.11.0
+scipy>=1.7.0
+scikit-learn>=0.24.0
+torch>=1.9.0
+librosa>=0.9.0
+tqdm>=4.62.0
+networkx>=2.6.0 (optional)
+plotly>=5.3.0 (optional)
+imageio>=2.9.0 (optional)
 ```
 
 ---
 
-## 📚 Citation
+## 📖 Citation
 
-If you use this software in your research, please cite:
+If you use this tool in your research, please cite:
 
 ```bibtex
-@article{aradi2025dolphin,
-  title={Deep learning-based behavioral state classification of Indo-Pacific 
-         bottlenose dolphin (\textit{Tursiops aduncus}) acoustic signals 
-         using LSTM autoencoders},
-  author={Aradi, Attila},
-  journal={Marine Mammal Science},
-  year={2025},
-  volume={00},
-  pages={1--15},
-  doi={10.xxxx/xxxxx}
+@software{dolphin_pro_analyzer,
+  title = {Dolphin Pro Analyzer: Integrated Bioacoustic Analysis Tool},
+  version = {4.3},
+  year = {2025},
+  url = {https://github.com/yourusername/dolphin-pro-analyzer}
 }
 ```
 
----
+### Key References
 
-## 🤝 Acknowledgments
-
-- * Access to dolphin facility and acoustic recordings
-- **ION-Technik Kft., Tarnaszentmária, Hungary** - Computational resources
-- **University of Miskolc** - Institutional support
+- Au, W.W.L. (1993). *The Sonar of Dolphins*. Springer-Verlag.
+- Janik, V.M. (2013). Cognitive skills in bottlenose dolphin communication. *Trends in Cognitive Sciences*, 17(4), 157-159.
+- Marwan, N., Romano, M.C., Thiel, M., & Kurths, J. (2007). Recurrence plots for the analysis of complex systems. *Physics Reports*, 438(5-6), 237-329.
+- Shannon, C.E. (1948). A mathematical theory of communication. *Bell System Technical Journal*, 27, 379-423.
 
 ---
 
 ## 📄 License
 
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-Copyright (c) 2025 Attila Aradi
+---
 
+## 🤝 Contributing
 
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+---
 
 ## 📧 Contact
 
-**Attila Aradi**  
-ION-Technik Kft.
-
-ION Alkalmazott Kutatási NonProfit Kft.
-
-University of Miskolc, Hungary  
-
-📧 attila.aradi@gmail.com
+For questions or collaboration opportunities, please open an issue on GitHub.
 
 ---
 
 <p align="center">
-  <i>Developed with 🐬 for marine mammal science</i>
+  <i>Advancing our understanding of dolphin communication through computational bioacoustics</i>
 </p>
